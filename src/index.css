@@ -12,6 +12,47 @@ body {
   overflow-x: hidden; /* Mencegah scroll samping */
 }
 
+/* Dark theme variables when data-theme="dark" set on <html> */
+[data-theme="dark"] {
+  --color-paper: #0b0b0b;
+  --color-ink: #EFEFEF;
+}
+
+/* Smooth transition for theme changes */
+body {
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+/* Dark mode overrides for utility classes that use hardcoded colors */
+[data-theme="dark"] [class*="border-black"] {
+  border-color: rgba(255,255,255,0.12) !important;
+}
+
+[data-theme="dark"] [class*="bg-white"] {
+  background-color: rgba(255,255,255,0.03) !important;
+  color: var(--color-ink) !important;
+}
+
+[data-theme="dark"] [class*="text-gray-600"] {
+  color: rgba(255,255,255,0.75) !important;
+}
+
+[data-theme="dark"] [class*="text-gray-500"] {
+  color: rgba(255,255,255,0.6) !important;
+}
+
+/* Make hero title readable in dark: disable blend and add subtle glow */
+[data-theme="dark"] .hero-title {
+  mix-blend-mode: normal !important;
+  color: #ff6b4b !important;
+  text-shadow: 0 6px 18px rgba(0,0,0,0.6), 0 1px 0 rgba(255,255,255,0.02) !important;
+}
+
+/* Ensure theme toggle border is visible */
+[data-theme="dark"] .fixed[aria-label="Toggle theme"] {
+  border-color: rgba(255,255,255,0.12) !important;
+}
+
 /* Helper biar semua garis grid konsisten */
 .border-grid {
   border: 1px solid #1A1A1A;

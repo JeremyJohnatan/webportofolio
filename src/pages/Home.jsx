@@ -1,12 +1,13 @@
 import React from 'react';
-import { ArrowDownRight, ArrowRight, Plus } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowDownRight, ArrowRight, Plus, MessageCircle, Linkedin, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 // --- DATA KAMU (GANTI DI SINI) ---
 const content = {
-  mainTitle: "JEREMY", // Judul Besar di Tengah
-  subTitle: "WEB DEVELOPER",
+  mainTitle: "JEREMY JOHNATAN", // Judul Besar di Tengah
+  subTitle: "WEB DEVELOPER & FULL STACK DEVELOPER",
   topBar: [
     "FULL STACK DEV",
     "BASED IN MALANG", 
@@ -15,119 +16,98 @@ const content = {
   about: [
     {
       title: "SIAPA SAYA",
-      text: "Saya Jeremy Johnatan, pengembang web yang fokus pada desain fungsional dan kode yang bersih. Spesialisasi di React dan modern web tech."
+      text: "Lulusan Sistem Informasi Universitas Merdeka Malang (Cum Laude, IPK 3.87). Passionate dalam Web Development dengan keahlian HTML, CSS, JavaScript, React.js, Next.js, dan Node.js. Aktif mengikuti kompetisi dan terus mengembangkan diri melalui proyek dan pembelajaran berkelanjutan."
     },
     {
-      title: "METODE",
-      text: "Membangun website bukan sekadar koding. Ini tentang solusi. Saya mengubah masalah rumit menjadi antarmuka yang sederhana."
+      title: "PENDEKATAN",
+      text: "Saya percaya bahwa development yang baik bukan hanya tentang kode, tapi tentang memahami kebutuhan user dan menciptakan solusi yang elegan, scalable, dan maintainable. Problem solving dan komunikasi tim adalah kunci kesuksesan."
     }
   ],
   skills: [
-    "REACT / NEXT.JS",
-    "TAILWIND CSS",
-    "NODE.JS / BACKEND",
-    "UI / UX DESIGN"
-  ],
-  services: [
-    { title: "WEBSITE", desc: "Landing page hingga web app kompleks" },
-    { title: "REDESIGN", desc: "Perbaikan tampilan & performa" },
-    { title: "SEO", desc: "Optimasi agar mudah dicari Google" },
-    { title: "CONSULT", desc: "Diskusi teknis untuk startup" }
+    "REACT.JS / NEXT.JS",
+    "JAVASCRIPT / NODE.JS",
+    "HTML / CSS / TAILWIND",
+    "MYSQL / POSTGRESQL / SQL",
+    "GIT / GITHUB",
+    "UI/UX DESIGN"
   ],
   experience: [
     {
       id: 1,
       role: "FULL STACK DEVELOPER",
-      company: "Tech Startup XYZ",
-      period: "2023 - Sekarang",
-      desc: "Mengembangkan web app dengan React, Node.js, dan database management"
+      company: "PG Krebet",
+      period: "2025 - Sekarang",
+      desc: "Membuat sistem informasi untuk analisis data dengan fokus pada integrasi backend dan frontend yang seamless."
     },
     {
       id: 2,
-      role: "JUNIOR WEB DEVELOPER",
-      company: "Digital Agency ABC",
-      period: "2022 - 2023",
-      desc: "Mengerjakan landing page dan website bisnis dengan HTML, CSS, JavaScript"
+      role: "ADMIN ONLINESHOP",
+      company: "Blesstoresurabaya",
+      period: "2015 - 2024",
+      desc: "Mengelola operasional toko di marketplace (Shopee, Tokopedia, TikTok Shop), pemrosesan pesanan, manajemen stok, dan customer service dengan rating 4.9+."
     },
     {
       id: 3,
-      role: "FREELANCER",
-      company: "Berbagai Client",
-      period: "2021 - 2022",
-      desc: "Project personal website, e-commerce, dan web app untuk startup lokal"
+      role: "ADMIN ONLINESHOP",
+      company: "Djamin Elektronik",
+      period: "2018 - 2024",
+      desc: "Mengelola operasional toko di marketplace (Shopee, Tokopedia, TikTok Shop), pemrosesan pesanan, manajemen stok, dan customer service dengan rating 4.8+."
     }
   ],
   education: [
     {
       id: 1,
-      degree: "SARJANA TEKNIK INFORMATIKA",
-      school: "Universitas Negeri Malang",
-      period: "2020 - 2024",
-      gpa: "3.75 / 4.0"
+      degree: "S1 SISTEM INFORMASI (CUMLAUDE)",
+      school: "Universitas Merdeka Malang",
+      period: "2022 - 2026",
+      gpa: "3.87 / 4.0"
     },
     {
       id: 2,
-      degree: "BOOTCAMP FULL STACK WEB",
-      school: "Coding Academy Indonesia",
-      period: "2021 - 2022",
-      gpa: "Outstanding"
+      degree: "SMA KATOLIK YOS SUDARSO (JURUSAN IPA)",
+      school: "Batu, Jawa Timur",
+      period: "2019 - 2022",
+      gpa: "Fokus: Akademik & Organisasi"
     }
   ],
   projects: [
     {
       id: 1,
-      title: "PROJECT SATU",
+      title: "DASHBOARD ANALISIS PRODUKSI",
       category: "WEB APP",
-      desc: "Deskripsi singkat project pertama kamu",
-      image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=800",
-      tags: ["REACT", "TAILWIND", "API"]
+      desc: "Sistem dashboard untuk visualisasi data analisis pabrik dan produk secara real-time.",
+      image: "/pgkrebet.png",
+      tags: ["LARAVEL", "DASHBOARD", "ANALYTICS"]
     },
     {
       id: 2,
-      title: "PROJECT DUA",
-      category: "LANDING PAGE",
-      desc: "Deskripsi singkat project kedua kamu",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800",
-      tags: ["NEXT.JS", "FRAMER"]
+      title: "SISTEM MANAJEMEN PEMESANAN",
+      category: "WEB APP",
+      desc: "Aplikasi web untuk digitalisasi pencatatan pesanan pelanggan dan manajemen stok bahan baku.",
+      image: "/dapuradida.png",
+      tags: ["NEXT.JS", "REACT.JS", "INVENTORY"]
     },
     {
       id: 3,
-      title: "PROJECT TIGA",
-      category: "REDESIGN",
-      desc: "Deskripsi singkat project ketiga kamu",
-      image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=800",
-      tags: ["FIGMA", "TAILWIND"]
+      title: "KAERU N & CO. E-COMMERCE",
+      category: "PROJECT LEAD",
+      desc: "Platform thrift shop online dengan management fitur end-to-end dari design hingga rilis.",
+      image: "/kaeru.png",
+      tags: ["TYPESCRIPT", "E-COMMERCE", "PM"]
     },
     {
       id: 4,
-      title: "PROJECT EMPAT",
-      category: "WEB APP",
-      desc: "Deskripsi singkat project keempat kamu",
-      image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=800",
-      tags: ["REACT", "NODE.JS", "MONGO"]
-    },
-    {
-      id: 5,
-      title: "PROJECT LIMA",
-      category: "MOBILE APP",
-      desc: "Deskripsi singkat project kelima kamu",
-      image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=800",
-      tags: ["REACT NATIVE", "FIREBASE"]
-    },
-    {
-      id: 6,
-      title: "PROJECT ENAM",
-      category: "CUSTOM",
-      desc: "Deskripsi singkat project keenam kamu",
-      image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800",
-      tags: ["CUSTOM", "ADVANCED"]
+      title: "INDEVPRO COMPANY PROFILE",
+      category: "WEBSITE",
+      desc: "Website profil organisasi dengan team management dari tahap planning hingga deployment.",
+      image: "/indev.png",
+      tags: ["LARAVEL", "REACT", "APM"]
     }
   ]
 };
 
 const Home = () => {
   // Scroll reveal untuk sections
-  const [servicesRef, servicesVisible] = useScrollReveal();
   const [experienceRef, experienceVisible] = useScrollReveal();
   const [educationRef, educationVisible] = useScrollReveal();
   const [projectsRef, projectsVisible] = useScrollReveal();
@@ -171,9 +151,9 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
             className="col-span-12 md:col-span-4 border-r border-black flex flex-col items-center justify-between py-6 md:py-10 px-4 bg-paper relative z-10"
           >
-            <button className="px-6 md:px-8 py-2 md:py-3 border border-black text-xs md:text-sm font-bold uppercase hover:bg-black hover:text-white transition-colors">
+            <a href="https://www.behance.net/gallery/199509095/Portofolio-Jeremy-Johnatan-2024" target="_blank" rel="noopener noreferrer" className="inline-block px-6 md:px-8 py-2 md:py-3 border border-black text-xs md:text-sm font-bold uppercase hover:bg-black hover:text-white transition-colors">
               Lihat Portfolio
-            </button>
+            </a>
             
             {/* Subtitle Kecil */}
             <div className="text-center px-2 md:px-4">
@@ -202,7 +182,7 @@ const Home = () => {
           initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: 'easeOut' }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-6xl sm:text-7xl md:text-[18vw] font-black tracking-tighter text-red-600 leading-none mix-blend-normal md:mix-blend-multiply pointer-events-none select-none z-20 w-full text-center px-3 sm:px-4"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-6xl sm:text-7xl md:text-[18vw] font-black tracking-tighter text-red-600 leading-none mix-blend-normal md:mix-blend-multiply pointer-events-none select-none z-20 w-full text-center px-3 sm:px-4 hero-title"
           style={{ 
             textShadow: 'none',
             filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3)) drop-shadow(-2px -2px 4px rgba(255,255,255,0.5))'
@@ -215,40 +195,28 @@ const Home = () => {
       {/* --- SECTION 3: ABOUT & SKILLS GRID --- */}
       <div className="grid grid-cols-1 md:grid-cols-12 border-b border-black">
         
-        {/* Kolom Kiri (Deskripsi) - Span 8 */}
-        <div className="col-span-12 md:col-span-8 grid grid-cols-1 md:grid-cols-2">
-          {/* Kotak About 1 */}
-          <div className="p-4 md:p-8 border-b md:border-b-0 md:border-r border-black flex flex-col justify-between h-full">
-            <div>
-              <h3 className="text-red-600 font-bold mb-2 md:mb-4 flex items-center gap-2 text-lg md:text-xl">
-                {content.about[0].title} <Plus size={16} className="hidden md:block"/>
-              </h3>
-              <p className="text-sm md:text-base leading-relaxed font-medium mb-4 md:mb-8">
-                {content.about[0].text}
-              </p>
-            </div>
-            <div className="aspect-video w-full border border-black overflow-hidden mt-4 md:mt-8">
-               <img src="https://images.unsplash.com/photo-1607799275518-d58665d096c2?q=80&w=600" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all"/>
-            </div>
+        {/* Kolom Kiri (Intro + CTA) - Span 8 */}
+        <div className="col-span-12 md:col-span-8 p-4 md:p-8 border-b md:border-b-0 md:border-r border-black flex flex-col justify-center">
+          <div className="mb-8 md:mb-12">
+            <p className="text-sm md:text-base text-gray-600 font-medium uppercase tracking-widest mb-4">HI, I'M JEREMY JOHNATAN</p>
+            <h2 className="text-3xl md:text-5xl font-black uppercase mb-6 leading-tight">Information Systems<br />Graduate & Web Developer</h2>
+            <p className="text-base md:text-lg font-medium leading-relaxed mb-8">
+              Mengubah ide menjadi realitas digital menggunakan React.js, Next.js, dan Node.js.
+            </p>
           </div>
 
-          {/* Kotak About 2 */}
-          <div className="p-4 md:p-8 md:border-r border-black flex flex-col justify-between h-full">
-             <div className="aspect-square w-full border border-black overflow-hidden mb-4 md:mb-8">
-               <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all"/>
-            </div>
-             <div>
-                <h3 className="text-red-600 font-bold mb-2 md:mb-4 text-lg md:text-xl">
-                  {content.about[1].title}
-                </h3>
-                <p className="text-sm md:text-base leading-relaxed font-medium">
-                  {content.about[1].text}
-                </p>
-             </div>
+          {/* CTA Buttons */}
+          <div className="flex flex-col md:flex-row gap-4">
+            <Link to="/projects" className="px-8 py-3 border-2 border-black font-black uppercase text-sm hover:bg-black hover:text-white transition-colors">
+              Lihat Proyek Saya
+            </Link>
+            <a href="#contact" className="px-8 py-3 border-2 border-black font-black uppercase text-sm hover:bg-black hover:text-white transition-colors">
+              Kontak Saya
+            </a>
           </div>
         </div>
 
-        {/* Kolom Kanan (List Skill) - Span 4 */}
+        {/* Kolom Kanan (Skills) - Span 4 */}
         <div className="col-span-12 md:col-span-4 bg-paper p-4 md:p-8 flex flex-col justify-center gap-4 md:gap-8 border-t md:border-t-0 border-black">
           {content.skills.map((skill, idx) => (
              <div key={idx} className="group cursor-pointer">
@@ -261,38 +229,16 @@ const Home = () => {
         </div>
       </div>
 
-      {/* --- SECTION 4: SERVICES (Loop Graphic) --- */}
-      <div ref={servicesRef} className="border-b border-black p-4 md:p-12">
-         <h3 className="text-xl md:text-2xl font-bold uppercase mb-8 md:mb-12 flex items-center gap-2">
-           LAYANAN <Plus size={20} className="hidden md:block"/>
-         </h3>
-         
-         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8 relative">
-            {/* SVG Dekorasi Garis Merah */}
-            <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-32 hidden md:block pointer-events-none opacity-80" viewBox="0 0 800 200">
-               <path d="M 0 100 Q 200 0 400 100 T 800 100" fill="none" stroke="#FF2E00" strokeWidth="3" />
-            </svg>
-
-            {content.services.map((item, idx) => (
-               <motion.div 
-                  key={idx} 
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={servicesVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-                  transition={{ delay: idx * 0.15, duration: 0.6, ease: 'easeOut' }}
-                  className="text-center md:text-left z-10 bg-paper/90 backdrop-blur-sm p-3 md:p-4 border border-transparent hover:border-black transition-all"
-               >
-                  <h4 className="font-black text-lg md:text-2xl mb-1 md:mb-2">{item.title}</h4>
-                  <p className="text-xs md:text-sm font-medium text-gray-600 uppercase tracking-wide">{item.desc}</p>
-               </motion.div>
-            ))}
-         </div>
-      </div>
-
-      {/* --- SECTION 5: EXPERIENCE --- */}
+      {/* --- SECTION 4: EXPERIENCE --- */}
       <div ref={experienceRef} className="border-b border-black p-4 md:p-12 bg-paper">
-        <h3 className="text-xl md:text-4xl font-bold uppercase mb-8 md:mb-12 flex items-center gap-2">
-          PENGALAMAN <Plus size={20} className="hidden md:block"/>
-        </h3>
+        <div className="mb-8 md:mb-12 flex items-center justify-between">
+          <h3 className="text-xl md:text-4xl font-bold uppercase flex items-center gap-2">
+            PENGALAMAN <Plus size={20} className="hidden md:block"/>
+          </h3>
+          <Link to="/experience" className="hidden md:flex items-center gap-2 px-6 py-3 border border-black uppercase font-bold text-sm hover:bg-black hover:text-white transition-all">
+            Lihat Semua <ArrowRight size={16}/>
+          </Link>
+        </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
           {content.experience.map((exp, idx) => (
@@ -312,6 +258,11 @@ const Home = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Mobile View All Button */}
+        <Link to="/experience" className="md:hidden w-full mt-8 bg-black text-white font-black py-4 uppercase tracking-widest hover:bg-red-600 transition-colors flex items-center justify-center gap-3 text-sm inline-block text-center">
+          Lihat Semua Pengalaman <ArrowRight size={16}/>
+        </Link>
       </div>
 
       {/* --- SECTION 6: EDUCATION --- */}
@@ -346,13 +297,13 @@ const Home = () => {
           <h3 className="text-xl md:text-4xl font-bold uppercase flex items-center gap-2">
             PROJECTS <Plus size={20} className="hidden md:block"/>
           </h3>
-          <button className="hidden md:flex items-center gap-2 px-6 py-3 border border-black uppercase font-bold text-sm hover:bg-black hover:text-white transition-all">
+          <Link to="/projects" className="hidden md:flex items-center gap-2 px-6 py-3 border border-black uppercase font-bold text-sm hover:bg-black hover:text-white transition-all">
             Lihat Semua <ArrowRight size={16}/>
-          </button>
+          </Link>
         </div>
 
         {/* Grid Projects */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
           {content.projects.map((project, idx) => (
             <motion.div 
               key={project.id}
@@ -409,13 +360,13 @@ const Home = () => {
         </div>
 
         {/* Mobile View All Button */}
-        <button className="md:hidden w-full mt-8 bg-black text-white font-black py-4 uppercase tracking-widest hover:bg-red-600 transition-colors flex items-center justify-center gap-3 text-sm">
+        <Link to="/projects" className="md:hidden w-full mt-8 bg-black text-white font-black py-4 uppercase tracking-widest hover:bg-red-600 transition-colors flex items-center justify-center gap-3 text-sm">
           Lihat Semua Projects <ArrowRight size={16}/>
-        </button>
+        </Link>
       </div>
 
       {/* --- SECTION 8: CONTACT FORM --- */}
-      <div ref={contactRef} className="grid grid-cols-1 md:grid-cols-2 h-auto md:h-[500px] border-t border-black">
+      <div id="contact" ref={contactRef} className="grid grid-cols-1 md:grid-cols-2 h-auto md:h-[500px] border-t border-black">
         {/* Kiri: Judul Besar */}
         <motion.div 
           initial={{ opacity: 0, x: -50 }}
@@ -448,6 +399,22 @@ const Home = () => {
                 Kirim Pesan <ArrowRight size={16} className="md:w-6 md:h-6"/>
               </button>
            </form>
+
+           {/* Social Links */}
+           <div className="border-t border-black mt-8 md:mt-12 pt-6 md:pt-8">
+             <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-gray-600 mb-4 md:mb-6">Atau hubungi langsung:</p>
+             <div className="flex gap-3 md:gap-4">
+               <a href="https://wa.me/62518273427" target="_blank" rel="noopener noreferrer" className="p-3 md:p-4 border border-black rounded-md hover:bg-black hover:text-white transition-colors" title="WhatsApp">
+                 <MessageCircle size={20} className="md:w-6 md:h-6" />
+               </a>
+               <a href="https://www.linkedin.com/in/jeremyjohnatan/" target="_blank" rel="noopener noreferrer" className="p-3 md:p-4 border border-black rounded-md hover:bg-black hover:text-white transition-colors" title="LinkedIn">
+                 <Linkedin size={20} className="md:w-6 md:h-6" />
+               </a>
+               <a href="https://www.behance.net/gallery/199509095/Portofolio-Jeremy-Johnatan-2024" target="_blank" rel="noopener noreferrer" className="p-3 md:p-4 border border-black rounded-md hover:bg-black hover:text-white transition-colors" title="Behance Portfolio">
+                 <Github size={20} className="md:w-6 md:h-6" />
+               </a>
+             </div>
+           </div>
         </motion.div>
       </div>
     </div>
