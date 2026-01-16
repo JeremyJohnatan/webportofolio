@@ -148,7 +148,7 @@ const Home = () => {
 
       {/* --- SECTION 2: HERO (TEXT BESAR & GAMBAR) --- */}
       <div className="relative border-b border-black overflow-hidden">
-        <div className="grid grid-cols-12 h-[60vh] md:h-[85vh]">
+        <div className="grid grid-cols-12 h-[50vh] md:h-[85vh]">
           
           {/* Gambar Kiri */}
           <motion.div 
@@ -169,15 +169,15 @@ const Home = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-            className="col-span-12 md:col-span-4 border-r border-black flex flex-col items-center pt-10 bg-paper relative z-10"
+            className="col-span-12 md:col-span-4 border-r border-black flex flex-col items-center justify-between py-6 md:py-10 px-4 bg-paper relative z-10"
           >
-            <button className="px-8 py-3 border border-black text-sm font-bold uppercase hover:bg-black hover:text-white transition-colors">
+            <button className="px-6 md:px-8 py-2 md:py-3 border border-black text-xs md:text-sm font-bold uppercase hover:bg-black hover:text-white transition-colors">
               Lihat Portfolio
             </button>
             
             {/* Subtitle Kecil */}
-            <div className="mt-auto mb-10 text-center px-4">
-                <p className="font-bold text-red-600 mb-2">SCROLL DOWN</p>
+            <div className="text-center px-2 md:px-4">
+                <p className="font-bold text-red-600 mb-2 text-xs md:text-base">SCROLL DOWN</p>
                 <ArrowDownRight className="mx-auto animate-bounce"/>
             </div>
           </motion.div>
@@ -202,7 +202,12 @@ const Home = () => {
           initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: 'easeOut' }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[18vw] font-black tracking-tighter text-red-600 leading-none mix-blend-multiply pointer-events-none select-none z-20 w-full text-center">
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-6xl sm:text-7xl md:text-[18vw] font-black tracking-tighter text-red-600 leading-none mix-blend-normal md:mix-blend-multiply pointer-events-none select-none z-20 w-full text-center px-3 sm:px-4"
+          style={{ 
+            textShadow: 'none',
+            filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3)) drop-shadow(-2px -2px 4px rgba(255,255,255,0.5))'
+          }}
+        >
           {content.mainTitle}
         </motion.h1>
       </div>
@@ -213,30 +218,30 @@ const Home = () => {
         {/* Kolom Kiri (Deskripsi) - Span 8 */}
         <div className="col-span-12 md:col-span-8 grid grid-cols-1 md:grid-cols-2">
           {/* Kotak About 1 */}
-          <div className="p-8 border-b md:border-b-0 md:border-r border-black flex flex-col justify-between h-full">
+          <div className="p-4 md:p-8 border-b md:border-b-0 md:border-r border-black flex flex-col justify-between h-full">
             <div>
-              <h3 className="text-red-600 font-bold mb-4 flex items-center gap-2 text-xl">
-                {content.about[0].title} <Plus size={20}/>
+              <h3 className="text-red-600 font-bold mb-2 md:mb-4 flex items-center gap-2 text-lg md:text-xl">
+                {content.about[0].title} <Plus size={16} className="hidden md:block"/>
               </h3>
-              <p className="text-base leading-relaxed font-medium mb-8">
+              <p className="text-sm md:text-base leading-relaxed font-medium mb-4 md:mb-8">
                 {content.about[0].text}
               </p>
             </div>
-            <div className="aspect-video w-full border border-black overflow-hidden mt-8">
+            <div className="aspect-video w-full border border-black overflow-hidden mt-4 md:mt-8">
                <img src="https://images.unsplash.com/photo-1607799275518-d58665d096c2?q=80&w=600" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all"/>
             </div>
           </div>
 
           {/* Kotak About 2 */}
-          <div className="p-8 md:border-r border-black flex flex-col justify-between h-full">
-             <div className="aspect-square w-full border border-black overflow-hidden mb-8">
+          <div className="p-4 md:p-8 md:border-r border-black flex flex-col justify-between h-full">
+             <div className="aspect-square w-full border border-black overflow-hidden mb-4 md:mb-8">
                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all"/>
             </div>
              <div>
-                <h3 className="text-red-600 font-bold mb-4 flex items-center gap-2 text-xl">
+                <h3 className="text-red-600 font-bold mb-2 md:mb-4 text-lg md:text-xl">
                   {content.about[1].title}
                 </h3>
-                <p className="text-base leading-relaxed font-medium">
+                <p className="text-sm md:text-base leading-relaxed font-medium">
                   {content.about[1].text}
                 </p>
              </div>
@@ -244,12 +249,12 @@ const Home = () => {
         </div>
 
         {/* Kolom Kanan (List Skill) - Span 4 */}
-        <div className="col-span-12 md:col-span-4 bg-paper p-8 flex flex-col justify-center gap-8 md:gap-12 border-t md:border-t-0 border-black">
+        <div className="col-span-12 md:col-span-4 bg-paper p-4 md:p-8 flex flex-col justify-center gap-4 md:gap-8 border-t md:border-t-0 border-black">
           {content.skills.map((skill, idx) => (
              <div key={idx} className="group cursor-pointer">
-                <div className="flex items-center justify-between border-b border-black pb-2 mb-2 group-hover:pl-4 transition-all">
-                  <span className="text-xl md:text-2xl font-bold uppercase">{skill}</span>
-                  <ArrowDownRight className="text-red-600 opacity-0 group-hover:opacity-100 transition-opacity"/>
+                <div className="flex items-center justify-between border-b border-black pb-1 md:pb-2 mb-1 md:mb-2 group-hover:pl-2 md:group-hover:pl-4 transition-all">
+                  <span className="text-sm md:text-2xl font-bold uppercase">{skill}</span>
+                  <ArrowDownRight size={14} className="md:w-5 md:h-5 text-red-600 opacity-0 group-hover:opacity-100 transition-opacity"/>
                 </div>
              </div>
           ))}
@@ -257,12 +262,12 @@ const Home = () => {
       </div>
 
       {/* --- SECTION 4: SERVICES (Loop Graphic) --- */}
-      <div ref={servicesRef} className="border-b border-black p-8 md:p-12">
-         <h3 className="text-2xl font-bold uppercase mb-12 flex items-center gap-2">
-           LAYANAN <Plus className="text-red-600"/>
+      <div ref={servicesRef} className="border-b border-black p-4 md:p-12">
+         <h3 className="text-xl md:text-2xl font-bold uppercase mb-8 md:mb-12 flex items-center gap-2">
+           LAYANAN <Plus size={20} className="hidden md:block"/>
          </h3>
          
-         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-8 relative">
             {/* SVG Dekorasi Garis Merah */}
             <svg className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-32 hidden md:block pointer-events-none opacity-80" viewBox="0 0 800 200">
                <path d="M 0 100 Q 200 0 400 100 T 800 100" fill="none" stroke="#FF2E00" strokeWidth="3" />
@@ -274,61 +279,61 @@ const Home = () => {
                   initial={{ opacity: 0, y: 40 }}
                   animate={servicesVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
                   transition={{ delay: idx * 0.15, duration: 0.6, ease: 'easeOut' }}
-                  className="text-center md:text-left z-10 bg-paper/90 backdrop-blur-sm p-4 border border-transparent hover:border-black transition-all"
+                  className="text-center md:text-left z-10 bg-paper/90 backdrop-blur-sm p-3 md:p-4 border border-transparent hover:border-black transition-all"
                >
-                  <h4 className="font-black text-2xl mb-2">{item.title}</h4>
-                  <p className="text-sm font-medium text-gray-600 uppercase tracking-wide">{item.desc}</p>
+                  <h4 className="font-black text-lg md:text-2xl mb-1 md:mb-2">{item.title}</h4>
+                  <p className="text-xs md:text-sm font-medium text-gray-600 uppercase tracking-wide">{item.desc}</p>
                </motion.div>
             ))}
          </div>
       </div>
 
       {/* --- SECTION 5: EXPERIENCE --- */}
-      <div ref={experienceRef} className="border-b border-black p-8 md:p-12 bg-paper">
-        <h3 className="text-2xl md:text-4xl font-bold uppercase mb-12 flex items-center gap-2">
-          PENGALAMAN <Plus className="text-red-600"/>
+      <div ref={experienceRef} className="border-b border-black p-4 md:p-12 bg-paper">
+        <h3 className="text-xl md:text-4xl font-bold uppercase mb-8 md:mb-12 flex items-center gap-2">
+          PENGALAMAN <Plus size={20} className="hidden md:block"/>
         </h3>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
           {content.experience.map((exp, idx) => (
             <motion.div
               key={exp.id}
               initial={{ opacity: 0, y: 40 }}
               animate={experienceVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
               transition={{ delay: idx * 0.15, duration: 0.6, ease: 'easeOut' }}
-              className="border border-black p-6 hover:bg-black hover:text-white transition-all duration-300"
+              className="border border-black p-4 md:p-6 hover:bg-black hover:text-white transition-all duration-300"
             >
-              <div className="mb-4">
-                <h4 className="text-xl font-black uppercase mb-1">{exp.role}</h4>
-                <p className="text-sm font-bold text-red-600">{exp.company}</p>
-                <p className="text-xs uppercase tracking-widest text-gray-500 mt-2">{exp.period}</p>
+              <div className="mb-3 md:mb-4">
+                <h4 className="text-base md:text-xl font-black uppercase mb-1">{exp.role}</h4>
+                <p className="text-xs md:text-sm font-bold text-red-600 hover:text-red-400">{exp.company}</p>
+                <p className="text-xs uppercase tracking-widest text-gray-500 hover:text-gray-300 mt-2">{exp.period}</p>
               </div>
-              <p className="text-sm leading-relaxed">{exp.desc}</p>
+              <p className="text-xs md:text-sm leading-relaxed">{exp.desc}</p>
             </motion.div>
           ))}
         </div>
       </div>
 
       {/* --- SECTION 6: EDUCATION --- */}
-      <div ref={educationRef} className="border-b border-black p-8 md:p-12 bg-paper">
-        <h3 className="text-2xl md:text-4xl font-bold uppercase mb-12 flex items-center gap-2">
-          PENDIDIKAN <Plus className="text-red-600"/>
+      <div ref={educationRef} className="border-b border-black p-4 md:p-12 bg-paper">
+        <h3 className="text-xl md:text-4xl font-bold uppercase mb-8 md:mb-12 flex items-center gap-2">
+          PENDIDIKAN <Plus size={20} className="hidden md:block"/>
         </h3>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
           {content.education.map((edu, idx) => (
             <motion.div
               key={edu.id}
               initial={{ opacity: 0, y: 40 }}
               animate={educationVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
               transition={{ delay: idx * 0.15, duration: 0.6, ease: 'easeOut' }}
-              className="border-l-4 border-red-600 pl-6 py-4 hover:pl-8 transition-all"
+              className="border-l-4 border-red-600 pl-3 md:pl-6 py-2 md:py-4 hover:pl-4 md:hover:pl-8 transition-all"
             >
-              <h4 className="text-xl font-black uppercase mb-2">{edu.degree}</h4>
-              <p className="text-sm font-bold text-gray-700 mb-2">{edu.school}</p>
+              <h4 className="text-base md:text-xl font-black uppercase mb-1 md:mb-2">{edu.degree}</h4>
+              <p className="text-xs md:text-sm font-bold text-gray-700 mb-1 md:mb-2">{edu.school}</p>
               <div className="flex items-center justify-between">
                 <p className="text-xs uppercase tracking-widest text-gray-500">{edu.period}</p>
-                <span className="text-sm font-bold text-red-600">{edu.gpa}</span>
+                <span className="text-xs md:text-sm font-bold text-red-600">{edu.gpa}</span>
               </div>
             </motion.div>
           ))}
@@ -336,10 +341,10 @@ const Home = () => {
       </div>
 
       {/* --- SECTION 7: PROJECTS GRID --- */}
-      <div ref={projectsRef} className="border-b border-black p-8 md:p-12">
-        <div className="mb-12 flex items-center justify-between">
-          <h3 className="text-2xl md:text-4xl font-bold uppercase flex items-center gap-2">
-            PROJECTS <Plus className="text-red-600"/>
+      <div ref={projectsRef} className="border-b border-black p-4 md:p-12">
+        <div className="mb-8 md:mb-12 flex items-center justify-between">
+          <h3 className="text-xl md:text-4xl font-bold uppercase flex items-center gap-2">
+            PROJECTS <Plus size={20} className="hidden md:block"/>
           </h3>
           <button className="hidden md:flex items-center gap-2 px-6 py-3 border border-black uppercase font-bold text-sm hover:bg-black hover:text-white transition-all">
             Lihat Semua <ArrowRight size={16}/>
@@ -347,7 +352,7 @@ const Home = () => {
         </div>
 
         {/* Grid Projects */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
           {content.projects.map((project, idx) => (
             <motion.div 
               key={project.id}
@@ -357,36 +362,36 @@ const Home = () => {
               className="group border border-black overflow-hidden bg-paper hover:shadow-xl transition-all duration-300 cursor-pointer"
             >
               {/* Image Container */}
-              <div className="relative h-64 overflow-hidden bg-black">
+              <div className="relative h-40 md:h-64 overflow-hidden bg-black">
                 <img 
                   src={project.image} 
                   alt={project.title}
                   className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
                 />
                 {/* Overlay Badge */}
-                <div className="absolute top-4 right-4 bg-red-600 text-white px-4 py-2 font-bold text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="absolute top-2 md:top-4 right-2 md:right-4 bg-red-600 text-white px-2 md:px-4 py-1 md:py-2 font-bold text-xs uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
                   {project.category}
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-6 flex flex-col">
+              <div className="p-3 md:p-6 flex flex-col">
                 {/* Title */}
-                <h4 className="text-xl md:text-2xl font-black uppercase mb-2 group-hover:text-red-600 transition-colors">
+                <h4 className="text-base md:text-2xl font-black uppercase mb-1 md:mb-2 group-hover:text-red-600 transition-colors">
                   {project.title}
                 </h4>
                 
                 {/* Description */}
-                <p className="text-sm text-gray-600 font-medium mb-4 flex-grow">
+                <p className="text-xs md:text-sm text-gray-600 font-medium mb-2 md:mb-4 flex-grow">
                   {project.desc}
                 </p>
 
                 {/* Tags */}
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap gap-1 md:gap-2 mb-3 md:mb-6">
                   {project.tags.map((tag, idx) => (
                     <span 
                       key={idx}
-                      className="text-xs px-3 py-1 border border-black font-bold uppercase tracking-wider bg-white group-hover:bg-black group-hover:text-white transition-colors"
+                      className="text-xs px-2 md:px-3 py-0.5 md:py-1 border border-black font-bold uppercase tracking-wider bg-white group-hover:bg-black group-hover:text-white transition-colors"
                     >
                       {tag}
                     </span>
@@ -394,9 +399,9 @@ const Home = () => {
                 </div>
 
                 {/* CTA Button */}
-                <button className="w-full border-t border-black pt-4 flex items-center justify-between font-bold uppercase text-sm hover:pl-4 transition-all group/btn">
+                <button className="w-full border-t border-black pt-2 md:pt-4 flex items-center justify-between font-bold uppercase text-xs md:text-sm hover:pl-2 md:hover:pl-4 transition-all group/btn">
                   Lihat Project
-                  <ArrowRight size={16} className="text-red-600 group-hover/btn:translate-x-2 transition-transform"/>
+                  <ArrowRight size={12} className="md:w-4 md:h-4 text-red-600 group-hover/btn:translate-x-1 transition-transform"/>
                 </button>
               </div>
             </motion.div>
@@ -404,21 +409,21 @@ const Home = () => {
         </div>
 
         {/* Mobile View All Button */}
-        <button className="md:hidden w-full mt-12 bg-black text-white font-black py-6 uppercase tracking-widest hover:bg-red-600 transition-colors flex items-center justify-center gap-3 text-lg">
-          Lihat Semua Projects <ArrowRight size={20}/>
+        <button className="md:hidden w-full mt-8 bg-black text-white font-black py-4 uppercase tracking-widest hover:bg-red-600 transition-colors flex items-center justify-center gap-3 text-sm">
+          Lihat Semua Projects <ArrowRight size={16}/>
         </button>
       </div>
 
-      {/* --- SECTION 6: CONTACT FORM --- */}
-      <div ref={contactRef} className="grid grid-cols-1 md:grid-cols-2 h-auto md:h-[500px]">
+      {/* --- SECTION 8: CONTACT FORM --- */}
+      <div ref={contactRef} className="grid grid-cols-1 md:grid-cols-2 h-auto md:h-[500px] border-t border-black">
         {/* Kiri: Judul Besar */}
         <motion.div 
           initial={{ opacity: 0, x: -50 }}
           animate={contactVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="border-r border-black p-8 md:p-16 flex flex-col justify-center relative overflow-hidden bg-ink text-paper"
+          className="border-r border-black p-6 md:p-16 flex flex-col justify-center relative overflow-hidden bg-ink text-paper"
         >
-           <h2 className="text-4xl md:text-6xl font-black uppercase z-10 relative leading-tight">
+           <h2 className="text-2xl md:text-6xl font-black uppercase z-10 relative leading-tight">
              Mari Buat<br/>Sesuatu<br/><span className="text-red-600">Yang Gila.</span>
            </h2>
         </motion.div>
@@ -428,24 +433,23 @@ const Home = () => {
           initial={{ opacity: 0, x: 50 }}
           animate={contactVisible ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="p-8 md:p-16 flex flex-col justify-center bg-paper"
+          className="p-6 md:p-16 flex flex-col justify-center bg-paper"
         >
-           <div className="flex items-center gap-2 mb-8 text-red-600 font-bold uppercase tracking-widest">
-             <Plus/> Kontak Saya
+           <div className="flex items-center gap-2 mb-6 md:mb-8 text-red-600 font-bold uppercase tracking-widest text-sm md:text-base">
+             <Plus size={16} className="md:w-5 md:h-5"/> Kontak Saya
            </div>
            
-           <form className="space-y-6">
-              <input type="text" placeholder="NAMA KAMU" className="w-full bg-transparent border-b-2 border-black p-4 placeholder-gray-400 focus:outline-none focus:border-red-600 transition-colors uppercase font-bold text-lg"/>
-              <input type="text" placeholder="EMAIL / WHATSAPP" className="w-full bg-transparent border-b-2 border-black p-4 placeholder-gray-400 focus:outline-none focus:border-red-600 transition-colors uppercase font-bold text-lg"/>
-              <textarea placeholder="CERITAKAN PROJECTMU..." rows="3" className="w-full bg-transparent border-b-2 border-black p-4 placeholder-gray-400 focus:outline-none focus:border-red-600 transition-colors uppercase font-bold text-lg"></textarea>
+           <form className="space-y-4 md:space-y-6">
+              <input type="text" placeholder="NAMA KAMU" className="w-full bg-transparent border-b-2 border-black p-2 md:p-4 placeholder-gray-400 focus:outline-none focus:border-red-600 transition-colors uppercase font-bold text-sm md:text-lg"/>
+              <input type="text" placeholder="EMAIL / WHATSAPP" className="w-full bg-transparent border-b-2 border-black p-2 md:p-4 placeholder-gray-400 focus:outline-none focus:border-red-600 transition-colors uppercase font-bold text-sm md:text-lg"/>
+              <textarea placeholder="CERITAKAN PROJECTMU..." rows="3" className="w-full bg-transparent border-b-2 border-black p-2 md:p-4 placeholder-gray-400 focus:outline-none focus:border-red-600 transition-colors uppercase font-bold text-sm md:text-lg"></textarea>
               
-              <button type="button" className="w-full bg-red-600 text-white font-black py-6 uppercase tracking-widest hover:bg-black transition-colors flex items-center justify-center gap-3 mt-8 text-xl">
-                Kirim Pesan <ArrowRight size={24}/>
+              <button type="button" className="w-full bg-red-600 text-white font-black py-4 md:py-6 uppercase tracking-widest hover:bg-black transition-colors flex items-center justify-center gap-3 mt-6 md:mt-8 text-sm md:text-xl">
+                Kirim Pesan <ArrowRight size={16} className="md:w-6 md:h-6"/>
               </button>
            </form>
         </motion.div>
       </div>
-
     </div>
   );
 };
