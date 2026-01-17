@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowDownRight, ArrowRight, Plus, MessageCircle, Linkedin, Github } from 'lucide-react';
+import { ArrowDownRight, ArrowRight, Plus, MessageCircle,MapPin,Briefcase,GraduationCap, FolderOpen,Phone, Linkedin, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
@@ -36,7 +36,7 @@ const content = {
       id: 1,
       role: "FULL STACK DEVELOPER",
       company: "PG Krebet",
-      period: "2025 - Sekarang",
+      period: "2025",
       desc: "Membuat sistem informasi untuk analisis data dengan fokus pada integrasi backend dan frontend yang seamless."
     },
     {
@@ -120,7 +120,14 @@ const Home = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 border-b border-black text-sm uppercase tracking-wider font-bold">
         {content.topBar.map((item, idx) => (
           <div key={idx} className={`p-4 flex items-center justify-center gap-2 ${idx !== 2 ? 'md:border-r border-black' : ''}`}>
-            {idx !== 0 && <Plus className="text-red-600 w-4 h-4" />}
+            {idx === 1 ? (
+              <MapPin className="text-red-600 w-4 h-4" />
+            ) : 
+            /* Jika ini kolom ke-3 (index 2), tampilkan Plus */
+            idx === 2 ? (
+               <Briefcase className="text-red-600 w-4 h-4" />
+            ) : null}
+            
             {item}
           </div>
         ))}
@@ -138,29 +145,53 @@ const Home = () => {
             className="col-span-4 border-r border-black relative overflow-hidden group hidden md:block"
           >
             <img 
-              src="https://images.unsplash.com/photo-1492571350019-22de08371fd3?q=80&w=1000" 
+              src="/1.jpg" 
               alt="Profile Vibe"
               className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
             />
           </motion.div>
           
           {/* Area Tengah (Kosong untuk Text) */}
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-            className="col-span-12 md:col-span-4 border-r border-black flex flex-col items-center justify-between py-6 md:py-10 px-4 bg-paper relative z-10"
-          >
-            <a href="https://www.behance.net/gallery/199509095/Portofolio-Jeremy-Johnatan-2024" target="_blank" rel="noopener noreferrer" className="inline-block px-6 md:px-8 py-2 md:py-3 border border-black text-xs md:text-sm font-bold uppercase hover:bg-black hover:text-white transition-colors">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+          className="col-span-12 md:col-span-4 border-r border-black flex flex-col items-center justify-between py-6 md:py-10 px-4 bg-paper relative z-10"
+        >
+          {/* WRAPPER TOMBOL (Supaya jejer ke samping) */}
+          <div className="flex flex-col md:flex-row gap-3 md:gap-4 text-center">
+            
+            {/* Tombol 1: Portfolio */}
+            <a 
+              href="https://www.behance.net/gallery/199509095/Portofolio-Jeremy-Johnatan-2024" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="inline-block px-6 md:px-8 py-2 md:py-3 border border-black text-xs md:text-sm font-bold uppercase hover:bg-black hover:text-white transition-colors"
+            >
               Lihat Portfolio
             </a>
-            
-            {/* Subtitle Kecil */}
-            <div className="text-center px-2 md:px-4">
-                <p className="font-bold text-red-600 mb-2 text-xs md:text-base">SCROLL DOWN</p>
-                <ArrowDownRight className="mx-auto animate-bounce"/>
-            </div>
-          </motion.div>
+
+            {/* Tombol 2: CV (SAMA PERSIS) */}
+            {/* Ganti '/cv-jeremy.pdf' dengan link file CV kamu yang asli */}
+            <a 
+              href="/cv.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="inline-block px-6 md:px-8 py-2 md:py-3 border border-black text-xs md:text-sm font-bold uppercase hover:bg-black hover:text-white transition-colors"
+            >
+              Lihat CV
+            </a>
+
+          </div>
+          
+          {/* (Opsional) Jika kamu memasang logo Bulan/Bintang di sini, taruh di bawah div wrapper di atas */}
+
+          {/* Subtitle Kecil */}
+          <div className="text-center px-2 md:px-4">
+              <p className="font-bold text-red-600 mb-2 text-xs md:text-base">SCROLL DOWN</p>
+              <ArrowDownRight className="mx-auto animate-bounce"/>
+          </div>
+        </motion.div>
 
           {/* Gambar Kanan */}
           <motion.div 
@@ -170,7 +201,7 @@ const Home = () => {
             className="col-span-12 md:col-span-4 relative overflow-hidden group"
           >
             <img 
-              src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1000" 
+              src="/2.JPG" 
               alt="Tech Vibe"
               className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
             />
@@ -182,7 +213,7 @@ const Home = () => {
           initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: 'easeOut' }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-6xl sm:text-7xl md:text-[18vw] font-black tracking-tighter text-red-600 leading-none mix-blend-normal md:mix-blend-multiply pointer-events-none select-none z-20 w-full text-center px-3 sm:px-4 hero-title"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-6xl sm:text-7xl md:text-[15vw] font-black tracking-tighter text-[#D73535] leading-none mix-blend-normal pointer-events-none select-none z-20 w-full text-center px-3 sm:px-4 hero-title"
           style={{ 
             textShadow: 'none',
             filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3)) drop-shadow(-2px -2px 4px rgba(255,255,255,0.5))'
@@ -190,7 +221,7 @@ const Home = () => {
         >
           {content.mainTitle}
         </motion.h1>
-      </div>
+      </div> 
 
       {/* --- SECTION 3: ABOUT & SKILLS GRID --- */}
       <div className="grid grid-cols-1 md:grid-cols-12 border-b border-black">
@@ -233,7 +264,7 @@ const Home = () => {
       <div ref={experienceRef} className="border-b border-black p-4 md:p-12 bg-paper">
         <div className="mb-8 md:mb-12 flex items-center justify-between">
           <h3 className="text-xl md:text-4xl font-bold uppercase flex items-center gap-2">
-            PENGALAMAN <Plus size={20} className="hidden md:block"/>
+            PENGALAMAN <Briefcase size={28} className="hidden md:block text-red-600"/>
           </h3>
           <Link to="/experience" className="hidden md:flex items-center gap-2 px-6 py-3 border border-black uppercase font-bold text-sm hover:bg-black hover:text-white transition-all">
             Lihat Semua <ArrowRight size={16}/>
@@ -268,7 +299,7 @@ const Home = () => {
       {/* --- SECTION 6: EDUCATION --- */}
       <div ref={educationRef} className="border-b border-black p-4 md:p-12 bg-paper">
         <h3 className="text-xl md:text-4xl font-bold uppercase mb-8 md:mb-12 flex items-center gap-2">
-          PENDIDIKAN <Plus size={20} className="hidden md:block"/>
+          PENDIDIKAN <GraduationCap size={28} className="hidden md:block text-red-600"/>
         </h3>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
@@ -294,8 +325,8 @@ const Home = () => {
       {/* --- SECTION 7: PROJECTS GRID --- */}
       <div ref={projectsRef} className="border-b border-black p-4 md:p-12">
         <div className="mb-8 md:mb-12 flex items-center justify-between">
-          <h3 className="text-xl md:text-4xl font-bold uppercase flex items-center gap-2">
-            PROJECTS <Plus size={20} className="hidden md:block"/>
+         <h3 className="text-xl md:text-4xl font-bold uppercase flex items-center gap-2">
+            PROJECTS <FolderOpen size={28} className="hidden md:block text-red-600"/>
           </h3>
           <Link to="/projects" className="hidden md:flex items-center gap-2 px-6 py-3 border border-black uppercase font-bold text-sm hover:bg-black hover:text-white transition-all">
             Lihat Semua <ArrowRight size={16}/>
@@ -375,8 +406,8 @@ const Home = () => {
           className="border-r border-black p-6 md:p-16 flex flex-col justify-center relative overflow-hidden bg-ink text-paper"
         >
            <h2 className="text-2xl md:text-6xl font-black uppercase z-10 relative leading-tight">
-             Mari Buat<br/>Sesuatu<br/><span className="text-red-600">Yang Gila.</span>
-           </h2>
+              Ubah Ide<br/>Menjadi<br/><span className="text-red-600">Realitas.</span>
+            </h2>
         </motion.div>
 
         {/* Kanan: Form */}
@@ -387,30 +418,43 @@ const Home = () => {
           className="p-6 md:p-16 flex flex-col justify-center bg-paper"
         >
            <div className="flex items-center gap-2 mb-6 md:mb-8 text-red-600 font-bold uppercase tracking-widest text-sm md:text-base">
-             <Plus size={16} className="md:w-5 md:h-5"/> Kontak Saya
+             <Phone size={16} className="md:w-5 md:h-5"/> Kontak Saya
            </div>
            
            <form className="space-y-4 md:space-y-6">
-              <input type="text" placeholder="NAMA KAMU" className="w-full bg-transparent border-b-2 border-black p-2 md:p-4 placeholder-gray-400 focus:outline-none focus:border-red-600 transition-colors uppercase font-bold text-sm md:text-lg"/>
-              <input type="text" placeholder="EMAIL / WHATSAPP" className="w-full bg-transparent border-b-2 border-black p-2 md:p-4 placeholder-gray-400 focus:outline-none focus:border-red-600 transition-colors uppercase font-bold text-sm md:text-lg"/>
-              <textarea placeholder="CERITAKAN PROJECTMU..." rows="3" className="w-full bg-transparent border-b-2 border-black p-2 md:p-4 placeholder-gray-400 focus:outline-none focus:border-red-600 transition-colors uppercase font-bold text-sm md:text-lg"></textarea>
-              
-              <button type="button" className="w-full bg-red-600 text-white font-black py-4 md:py-6 uppercase tracking-widest hover:bg-black transition-colors flex items-center justify-center gap-3 mt-6 md:mt-8 text-sm md:text-xl">
-                Kirim Pesan <ArrowRight size={16} className="md:w-6 md:h-6"/>
-              </button>
+             <input type="text" placeholder="NAMA KAMU" className="w-full bg-transparent border-b-2 border-black p-2 md:p-4 placeholder-gray-400 focus:outline-none focus:border-red-600 transition-colors uppercase font-bold text-sm md:text-lg"/>
+             <input type="text" placeholder="EMAIL / WHATSAPP" className="w-full bg-transparent border-b-2 border-black p-2 md:p-4 placeholder-gray-400 focus:outline-none focus:border-red-600 transition-colors uppercase font-bold text-sm md:text-lg"/>
+             <textarea placeholder="Halo Jeremy, saya ingin membuat website untuk bisnis [Nama Bisnis]. Fitur yang saya butuhkan adalah [sebutkan fitur]. Kira-kira kapan kita bisa diskusi?" rows="3" className="w-full bg-transparent border-b-2 border-black p-2 md:p-4 placeholder-gray-400 focus:outline-none focus:border-red-600 transition-colors uppercase font-bold text-sm md:text-lg"></textarea>
+             
+             <button type="button" className="w-full bg-red-600 text-white font-black py-4 md:py-6 uppercase tracking-widest hover:bg-black transition-colors flex items-center justify-center gap-3 mt-6 md:mt-8 text-sm md:text-xl">
+               Kirim Pesan <ArrowRight size={16} className="md:w-6 md:h-6"/>
+             </button>
            </form>
 
            {/* Social Links */}
            <div className="border-t border-black mt-8 md:mt-12 pt-6 md:pt-8">
              <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-gray-600 mb-4 md:mb-6">Atau hubungi langsung:</p>
              <div className="flex gap-3 md:gap-4">
-               <a href="https://wa.me/62518273427" target="_blank" rel="noopener noreferrer" className="p-3 md:p-4 border border-black rounded-md hover:bg-black hover:text-white transition-colors" title="WhatsApp">
-                 <MessageCircle size={20} className="md:w-6 md:h-6" />
-               </a>
+              <a 
+                href="https://wa.me/62518273427" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="p-3 md:p-4 border border-black rounded-md hover:bg-black hover:text-white transition-colors group" 
+                title="WhatsApp"
+              >
+                <svg 
+                  xmlns="http://www.w3.org/2000/svg" 
+                  viewBox="0 0 24 24" 
+                  fill="currentColor" 
+                  className="w-5 h-5 md:w-6 md:h-6"
+                >
+                  <path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91c0-2.65-1.03-5.14-2.9-7.01m-7.01 15.24c-1.48 0-2.93-.4-4.2-1.15l-.3-.18l-3.12.82l.83-3.04l-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24c2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23m4.52-6.16c-.25-.12-1.47-.72-1.69-.81c-.23-.08-.39-.12-.56.12c-.17.25-.64.81-.78.97c-.14.17-.29.19-.54.06c-.25-.12-1.05-.39-1.99-1.23c-.74-.66-1.23-1.47-1.38-1.72c-.14-.25-.02-.38.11-.51c.11-.11.25-.29.37-.43s.17-.25.25-.41c.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31c-.22.25-.86.85-.86 2.07s.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74c.59.26 1.05.41 1.41.52c.59.19 1.13.16 1.56.1c.48-.07 1.47-.6 1.67-1.18c.21-.58.21-1.07.14-1.18s-.22-.16-.47-.28"/>
+                </svg>
+              </a>
                <a href="https://www.linkedin.com/in/jeremyjohnatan/" target="_blank" rel="noopener noreferrer" className="p-3 md:p-4 border border-black rounded-md hover:bg-black hover:text-white transition-colors" title="LinkedIn">
                  <Linkedin size={20} className="md:w-6 md:h-6" />
                </a>
-               <a href="https://www.behance.net/gallery/199509095/Portofolio-Jeremy-Johnatan-2024" target="_blank" rel="noopener noreferrer" className="p-3 md:p-4 border border-black rounded-md hover:bg-black hover:text-white transition-colors" title="Behance Portfolio">
+               <a href="http://github.com/JeremyJohnatan" target="_blank" rel="noopener noreferrer" className="p-3 md:p-4 border border-black rounded-md hover:bg-black hover:text-white transition-colors" title="Behance Portfolio">
                  <Github size={20} className="md:w-6 md:h-6" />
                </a>
              </div>

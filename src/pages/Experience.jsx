@@ -1,5 +1,15 @@
 import React from 'react';
-import { ArrowLeft, Plus } from 'lucide-react';
+import { 
+  ArrowLeft, 
+  Plus, 
+  // Ikon Tech & Dev
+  LayoutDashboard, Database, Users, 
+  // Ikon Toko & Ops
+  Package, MessageCircle, Star, FileSpreadsheet, ClipboardCheck,
+  Store, CheckCircle2, Truck, BookOpen, TrendingUp,
+  // Ikon Event & Org
+  FileText, Megaphone, Wallet, Calculator, ClipboardList
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -8,12 +18,12 @@ const experienceData = [
     id: 1,
     role: "FULL STACK DEVELOPER",
     company: "PG Krebet",
-    period: "2025 - Sekarang",
+    period: "2025",
     desc: "Membuat sistem informasi untuk analisis data dengan fokus pada integrasi backend dan frontend yang seamless.",
     details: [
-      "Mengembangkan dashboard analytics menggunakan React.js dan Node.js",
-      "Implementasi database design untuk performa optimal",
-      "Kolaborasi dengan tim untuk mengumpulkan requirements dan feedback"
+      { text: "Mengembangkan dashboard analytics menggunakan React.js dan Node.js", icon: LayoutDashboard },
+      { text: "Implementasi database design untuk performa optimal", icon: Database },
+      { text: "Kolaborasi dengan tim untuk mengumpulkan requirements dan feedback", icon: Users }
     ]
   },
   {
@@ -23,11 +33,11 @@ const experienceData = [
     period: "2015 - 2024",
     desc: "Mengelola operasional toko di marketplace (Shopee, Tokopedia, TikTok Shop), pemrosesan pesanan, manajemen stok, dan customer service dengan rating 4.9+.",
     details: [
-      "Pengelolaan inventory real-time di 3 platform marketplace utama",
-      "Handling customer inquiries dengan response time < 2 jam",
-      "Mempertahankan rating toko di atas 4.8 stars",
-      "Rekapitulasi data penjualan dan analisis trend menggunakan Excel",
-      "Mengelola stok dan minimalisir selisih antara sistem dan fisik"
+      { text: "Pengelolaan inventory real-time di 3 platform marketplace utama", icon: Package },
+      { text: "Handling customer inquiries dengan response time < 30 menit", icon: MessageCircle },
+      { text: "Mempertahankan rating toko di atas 4.8 stars", icon: Star },
+      { text: "Rekapitulasi data penjualan dan analisis trend menggunakan Excel", icon: FileSpreadsheet },
+      { text: "Mengelola stok dan minimalisir selisih antara sistem dan fisik", icon: ClipboardCheck }
     ]
   },
   {
@@ -37,11 +47,11 @@ const experienceData = [
     period: "2018 - 2024",
     desc: "Mengelola operasional toko di marketplace (Shopee, Tokopedia, TikTok Shop), pemrosesan pesanan, manajemen stok, dan customer service dengan rating 4.8+.",
     details: [
-      "Mengelola operasional 3 toko online di marketplace terkemuka",
-      "Proses fulfillment order dengan akurasi 99.5%",
-      "Koordinasi dengan supplier untuk supply chain yang efisien",
-      "Training tim untuk standard operasional yang konsisten",
-      "Analisis data penjualan untuk strategi pricing dan promo"
+      { text: "Mengelola operasional 3 toko online di marketplace terkemuka", icon: Store },
+      { text: "Proses fulfillment order dengan akurasi 99.5%", icon: CheckCircle2 },
+      { text: "Koordinasi dengan supplier untuk supply chain yang efisien", icon: Truck },
+      { text: "Training tim untuk standard operasional yang konsisten", icon: BookOpen },
+      { text: "Analisis data penjualan untuk strategi pricing dan promo", icon: TrendingUp }
     ]
   },
   {
@@ -51,11 +61,11 @@ const experienceData = [
     period: "2023 - 2024",
     desc: "Berkontribusi dalam berbagai event dan kompetisi universitas sebagai panitia dan koordinator.",
     details: [
-      "PKKMB Panitia (2023): Mengajukan proposal sponsor",
-      "FTI Workshop Fest SIE Humas (2023): Proposal sponsor dan publikasi event",
-      "3CC Competition Wakil Bendahara (2024): Manajemen budget dan keuangan event",
-      "3CC Competition Bendahara (2024-2025): Pengelolaan anggaran keseluruhan event",
-      "Koordinator Kelas (2023-2024): Notulensi, distribusi informasi, koordinasi akademik"
+      { text: "PKKMB Panitia (2023): Mengajukan proposal sponsor", icon: FileText },
+      { text: "FTI Workshop Fest SIE Humas (2023): Proposal sponsor dan publikasi event", icon: Megaphone },
+      { text: "3CC Competition Wakil Bendahara (2024): Manajemen budget dan keuangan event", icon: Wallet },
+      { text: "3CC Competition Bendahara (2024-2025): Pengelolaan anggaran keseluruhan event", icon: Calculator },
+      { text: "Koordinator Kelas (2023-2024): Notulensi, distribusi informasi, koordinasi akademik", icon: ClipboardList }
     ]
   }
 ];
@@ -104,18 +114,22 @@ const Experience = () => {
                 </p>
               </div>
 
-              {/* Details */}
+              {/* Details Section Updated */}
               {exp.details && (
                 <div className="p-6 md:p-8 bg-paper/50">
                   <div className="flex items-center gap-2 mb-4">
                     <Plus size={16} className="text-red-600" />
                     <p className="text-xs font-bold uppercase tracking-widest">Pencapaian & Tanggung Jawab</p>
                   </div>
-                  <ul className="space-y-3">
+                  <ul className="space-y-4"> {/* Space y diperbesar sedikit agar lebih rapi */}
                     {exp.details.map((detail, i) => (
-                      <li key={i} className="text-sm md:text-base flex gap-3">
-                        <span className="text-red-600 font-bold flex-shrink-0">▸</span>
-                        <span className="text-gray-700">{detail}</span>
+                      <li key={i} className="text-sm md:text-base flex items-start gap-3 group/item">
+                        {/* Container Ikon */}
+                        <div className="mt-1 p-1.5 rounded-md bg-red-50 text-red-600 group-hover/item:bg-red-600 group-hover/item:text-white transition-colors duration-200 flex-shrink-0">
+                          <detail.icon size={16} strokeWidth={2.5} />
+                        </div>
+                        {/* Text */}
+                        <span className="text-gray-700 leading-relaxed">{detail.text}</span>
                       </li>
                     ))}
                   </ul>
