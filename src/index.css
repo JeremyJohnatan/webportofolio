@@ -17,6 +17,10 @@ body {
   --color-paper: #0b0b0b;
   --color-ink: #EFEFEF;
 }
+/* Tambahkan ini agar text-black berubah jadi putih saat dark mode */
+[data-theme="dark"] [class*="text-black"] {
+  color: #FFFFFF !important;
+}
 
 /* Smooth transition for theme changes */
 body {
