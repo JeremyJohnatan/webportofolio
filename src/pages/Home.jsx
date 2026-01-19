@@ -145,7 +145,7 @@ const Home = () => {
             className="col-span-4 border-r border-black relative overflow-hidden group hidden md:block"
           >
             <img 
-              src="/1.jpg" 
+              src="/4.jpg" 
               alt="Profile Vibe"
               className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
             />
@@ -174,7 +174,7 @@ const Home = () => {
             {/* Tombol 2: CV (SAMA PERSIS) */}
             {/* Ganti '/cv-jeremy.pdf' dengan link file CV kamu yang asli */}
             <a 
-              href="/cv.pdf" 
+              href="/CV-Jeremy-Johnatan.pdf" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="inline-block px-6 md:px-8 py-2 md:py-3 border border-black text-xs md:text-sm font-bold uppercase hover:bg-black hover:text-white transition-colors"
@@ -201,7 +201,7 @@ const Home = () => {
             className="col-span-12 md:col-span-4 relative overflow-hidden group"
           >
             <img 
-              src="/2.JPG" 
+              src="/3..jpg" 
               alt="Tech Vibe"
               className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
             />
@@ -229,11 +229,13 @@ const Home = () => {
         {/* Kolom Kiri (Intro + CTA) - Span 8 */}
         <div className="col-span-12 md:col-span-8 p-4 md:p-8 border-b md:border-b-0 md:border-r border-black flex flex-col justify-center">
           <div className="mb-8 md:mb-12">
-            <p className="text-sm md:text-base text-gray-600 font-medium uppercase tracking-widest mb-4">HI, I'M JEREMY JOHNATAN</p>
+            <p className="text-sm md:text-base text-gray-600 font-medium uppercase tracking-widest mb-4">
+            HI, I'M <span className="text-black font-bold">JEREMY JOHNATAN</span>
+          </p>
             <h2 className="text-3xl md:text-5xl font-black uppercase mb-6 leading-tight">Information Systems<br />Graduate & Web Developer</h2>
-            <p className="text-base md:text-lg font-medium leading-relaxed mb-8">
-              Mengubah ide menjadi realitas digital menggunakan React.js, Next.js, dan Node.js.
-            </p>
+            <p className="text-base md:text-lg text-gray-600 font-medium leading-relaxed mb-8">
+            Mengubah ide menjadi realitas digital menggunakan React.js, Next.js, dan Node.js.
+          </p>
           </div>
 
           {/* CTA Buttons */}
@@ -263,9 +265,10 @@ const Home = () => {
       {/* --- SECTION 4: EXPERIENCE --- */}
       <div ref={experienceRef} className="border-b border-black p-4 md:p-12 bg-paper">
         <div className="mb-8 md:mb-12 flex items-center justify-between">
-          <h3 className="text-xl md:text-4xl font-bold uppercase flex items-center gap-2">
-            PENGALAMAN <Briefcase size={28} className="hidden md:block text-red-600"/>
-          </h3>
+         <h3 className="text-xl md:text-4xl font-bold uppercase flex items-center gap-2">
+          PENGALAMAN 
+          <Briefcase className="hidden md:block text-red-600 w-5 h-5 md:w-9 md:h-9 mt-[2px]" />
+        </h3>
           <Link to="/experience" className="hidden md:flex items-center gap-2 px-6 py-3 border border-black uppercase font-bold text-sm hover:bg-black hover:text-white transition-all">
             Lihat Semua <ArrowRight size={16}/>
           </Link>
@@ -299,7 +302,8 @@ const Home = () => {
       {/* --- SECTION 6: EDUCATION --- */}
       <div ref={educationRef} className="border-b border-black p-4 md:p-12 bg-paper">
         <h3 className="text-xl md:text-4xl font-bold uppercase mb-8 md:mb-12 flex items-center gap-2">
-          PENDIDIKAN <GraduationCap size={28} className="hidden md:block text-red-600"/>
+          PENDIDIKAN 
+          <GraduationCap className="hidden md:block text-red-600 w-5 h-5 md:w-9 md:h-9 mt-[2px]"/>
         </h3>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
@@ -326,8 +330,20 @@ const Home = () => {
       <div ref={projectsRef} className="border-b border-black p-4 md:p-12">
         <div className="mb-8 md:mb-12 flex items-center justify-between">
          <h3 className="text-xl md:text-4xl font-bold uppercase flex items-center gap-2">
-            PROJECTS <FolderOpen size={28} className="hidden md:block text-red-600"/>
-          </h3>
+          PROJECTS 
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 512 512" 
+            fill="none" 
+            stroke="currentColor" 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            strokeWidth="32" 
+            className="hidden md:block text-red-600 w-5 h-5 md:w-9 md:h-9 mt-[2px]"
+          >
+            <path d="M440 432H72a40 40 0 0 1-40-40V120a40 40 0 0 1 40-40h75.89a40 40 0 0 1 22.19 6.72l27.84 18.56a40 40 0 0 0 22.19 6.72H440a40 40 0 0 1 40 40v240a40 40 0 0 1-40 40M32 192h448"/>
+          </svg>
+        </h3>
           <Link to="/projects" className="hidden md:flex items-center gap-2 px-6 py-3 border border-black uppercase font-bold text-sm hover:bg-black hover:text-white transition-all">
             Lihat Semua <ArrowRight size={16}/>
           </Link>
