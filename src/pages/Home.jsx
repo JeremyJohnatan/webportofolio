@@ -79,6 +79,7 @@ const content = {
       category: "WEB APP",
       desc: "Sistem dashboard untuk visualisasi data analisis pabrik dan produk secara real-time.",
       image: "/pgkrebet.png",
+      link: "https://github.com/JeremyJohnatan/db_pg",
       tags: ["LARAVEL", "DASHBOARD", "ANALYTICS"]
     },
     {
@@ -87,6 +88,7 @@ const content = {
       category: "WEB APP",
       desc: "Aplikasi web untuk digitalisasi pencatatan pesanan pelanggan dan manajemen stok bahan baku.",
       image: "/dapuradida.png",
+      link: "https://dapur-adida.vercel.app/",
       tags: ["NEXT.JS", "REACT.JS", "INVENTORY"]
     },
     {
@@ -95,14 +97,16 @@ const content = {
       category: "PROJECT LEAD",
       desc: "Platform thrift shop online dengan management fitur end-to-end dari design hingga rilis.",
       image: "/kaeru.png",
+      link: "https://kaeru-and-co.vercel.app/id/",
       tags: ["TYPESCRIPT", "E-COMMERCE", "PM"]
     },
     {
       id: 4,
       title: "INDEVPRO COMPANY PROFILE",
-      category: "WEBSITE",
+      category: "ASSISTANT PROJECT MANAGER ",
       desc: "Website profil organisasi dengan team management dari tahap planning hingga deployment.",
       image: "/indev.png",
+      link: "https://indevpro.dev/",
       tags: ["LARAVEL", "REACT", "APM"]
     }
   ]
@@ -375,10 +379,15 @@ ${message}
                     </span>
                   ))}
                 </div>
-                <button className="w-full border-t border-black pt-2 md:pt-4 flex items-center justify-between font-bold uppercase text-xs md:text-sm hover:pl-2 md:hover:pl-4 transition-all group/btn">
-                  Lihat Project
-                  <ArrowRight size={12} className="md:w-4 md:h-4 text-red-600 group-hover/btn:translate-x-1 transition-transform"/>
-                </button>
+                <a 
+          href={project.link} // Mengambil link dari data
+          target="_blank"     // Membuka di tab baru
+          rel="noopener noreferrer" // Keamanan untuk target blank
+          className="w-full border-t border-black pt-2 md:pt-4 flex items-center justify-between font-bold uppercase text-xs md:text-sm hover:pl-2 md:hover:pl-4 transition-all group/btn"
+        >
+          Lihat Project
+          <ArrowRight size={12} className="md:w-4 md:h-4 text-red-600 group-hover/btn:translate-x-1 transition-transform"/>
+        </a>
               </div>
             </motion.div>
           ))}
